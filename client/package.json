@@ -34,8 +34,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:8080",
   "devDependencies": {
     "axios": "^0.19.2"
-  }
+  },
+  "proxy": "http://localhost:8080"
 }
