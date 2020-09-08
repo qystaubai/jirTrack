@@ -1,0 +1,125 @@
+@import "~materialize-css/dist/css/materialize.min.css";
+
+.main-dark {
+  background-color: #272d2d!important;
+}
+
+.main-green {
+  background-color: #23ce6b;
+}
+
+.main-red {
+  background-color: #ff5964;
+}
+
+.main-light {
+  background-color: #fffcf2;
+}
+
+.text-light {
+  color: #fffcf2;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #272d2d;
+  /*height: 100vh;*/
+  color: #272d2d;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/*Top Bar*/
+
+.top-bar {
+  /*display: flex;*/
+}
+
+.exit i {
+  font-size: 2rem;
+}
+
+/*Main Card*/
+.main-card {
+  background-color: #272d2d;
+  border: #fff 6px solid;
+}
+
+.main-content {
+  width: 95%
+}
+
+.inner {
+  height: 85%;
+}
+
+
+
+
+/*Person card*/
+
+.card {
+  display: flex;
+  align-content: center;
+  /*flex: 1;*/
+}
+
+.card-content {
+  flex: 1;
+}
+
+.card .weight {
+  font-size: 7em;
+}
+
+.jir-card {
+  /*display: flex;*/
+}
+
+.prevJir .weight {
+  font-size: 4em;
+}
+
+#weight {
+  border-bottom: 1px solid #272d2d!important;
+}
+.prevJir .input-field label {
+  color: #272d2d!important;
+}
+
+.prevJir button {
+  background-color: #272d2d!important;
+}
+
+/*New person card*/
+.new-person-card .card-content {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-self: center;
+}
+
+.graph-card {
+  background-color: #272d2d;
+  border: 1px solid #fff;
+  border-bottom: 6px solid #fff;
+}
+
+@media (max-width: 600px) {
+  .chart-container {
+    position: relative;
+    width: 75vw;
+  }
+
+  .graph-card .card-content {
+    padding: 0
+  }
+}
