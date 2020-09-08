@@ -13,13 +13,15 @@ export const MainCard = () => {
     const api = useApi();
 
     const getJir = async () => {
-        const jir = await api.callApi('/api/user/jir/' + auth.userId, {id: auth.userId}, 'GET')
-        setJirData(jir.data);
+        if(auth.userId) {
+            const jir = await api.callApi('/api/user/jir/' + auth.userId, {id: auth.userId}, 'GET')
+            setJirData(jir.data);
+        }
     }
 
     useEffect(() => {
         getJir()
-    }, [])
+    }, [auth.userId])
 
     return (
         <>
