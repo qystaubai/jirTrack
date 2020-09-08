@@ -38,7 +38,10 @@ router.get('/jir/:id', async (req, res) => {
     const id = req.params.id;
     try {
         const user = await User.findById(id, 'weight', {useFindAndModify: false});
-        return res.json(Object.entries(user.weight).slice(-10));
+        if (user.weight) {
+            return res.json(Object.entries(user.weight).slice(-10));
+        }
+        res.json({});
     } catch (e) {
         console.log(e)
         return res.json(e.message)
