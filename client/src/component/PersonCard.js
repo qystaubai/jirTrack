@@ -25,6 +25,7 @@ export const PersonCard = (props) => {
     }
 
     const updateJirCard = () => {
+        if (props.jir) {
         const now = props.jir[props.jir.length-1][1]
         const prev = props.jir[props.jir.length-2][1];
         setJirNow(now);
@@ -35,6 +36,7 @@ export const PersonCard = (props) => {
             } else {
                 setWeightGain(false);
             }
+        }
         }
     }
 
