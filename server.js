@@ -33,12 +33,13 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 }
 
-
 // HTTP request logger
 app.use('/api/auth', require('./routes/auth.route'))
 app.use('/api/user', checkAuth, require('./routes/user.route'))
 
-
+app.get('*', function(request, response) {
+    response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
+});
 
 
 app.listen(PORT, console.log(`Server is starting at ${PORT}`));
