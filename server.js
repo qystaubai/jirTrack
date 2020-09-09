@@ -9,8 +9,6 @@ const checkAuth = require('./middlewares/checkAuth.middleware')
 
 const PORT = process.env.PORT || 8080; // Step 1
 
-const routes = require('./routes/api');
-
 // Step 2
 mongoose.connect(config.mongoUrl, {
     useNewUrlParser: true,
