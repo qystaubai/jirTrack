@@ -16,7 +16,6 @@ router.post(
     ],
     async (req, res)=>{
         const err = validationResult(req);
-        console.log(err)
         if(!err.isEmpty()){
             return res.status(400).json({error: "Некорректные авторизационные данные"});
         }

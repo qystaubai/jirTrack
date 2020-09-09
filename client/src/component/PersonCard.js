@@ -26,11 +26,11 @@ export const PersonCard = (props) => {
 
     const updateJirCard = () => {
         if (props.jir) {
-        const now = props.jir[props.jir.length-1][1]
-        const prev = props.jir[props.jir.length-2][1];
+        const now = props.jir.slice(-1)[0][1];
         setJirNow(now);
-        setPrevJir(prev);
-        if (prev) {
+        if (props.jir.length >= 2) {
+            const prev = props.jir.slice(-2, -1)[0][1];
+            setPrevJir(prev);
             if (now.weight > prev.weight) {
                 setWeightGain(true);
             } else {

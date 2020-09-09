@@ -11,12 +11,12 @@ export const GraphCard = (props) => {
         const jirChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: props.jir.map((j) => {return j[1].date}),
+                labels: props.jir? props.jir.map((j) => {return j[1].date}): [],
                 datasets: [{
                     label: 'Динамика веса',
                     backgroundColor: 'rgb(255, 99, 132)',
                     borderColor: 'rgb(255, 99, 132)',
-                    data: props.jir.map((j) => {return j[1].weight}),
+                    data: props.jir? props.jir.map((j) => {return j[1].weight}): [],
                 }]
             },
             options: {maintainAspectRatio: false}

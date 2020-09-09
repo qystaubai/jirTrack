@@ -28,16 +28,10 @@ export const MainCard = () => {
             <div className="col s12">
                 <div className="card main-card">
                     <div className="card-content main-content">
-                        {jirData?
                             <div className='row'>
                                 <PersonCard jir={jirData} getJir={getJir}/>
                                 <GraphCard jir={jirData}/>
-
-                            </div>: <div>haha jipa</div>
-                        }
-                        {/*<div className='row'>*/}
-                        {/*    <NewPersonCard />*/}
-                        {/*</div>*/}
+                            </div>
                     </div>
                 </div>
             </div>

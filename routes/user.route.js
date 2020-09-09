@@ -41,7 +41,7 @@ router.get('/jir/:id', async (req, res) => {
         if (user.weight) {
             return res.json(Object.entries(user.weight).slice(-10));
         }
-        res.json({});
+        res.json(null);
     } catch (e) {
         console.log(e)
         return res.json(e.message)
