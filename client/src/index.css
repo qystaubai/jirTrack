@@ -77,7 +77,7 @@ code {
 }
 
 .card .weight {
-  font-size: 7em;
+  font-size: 13vw;
 }
 
 .jir-card {
@@ -85,7 +85,7 @@ code {
 }
 
 .prevJir .weight {
-  font-size: 4em;
+  font-size: 7vw;
 }
 
 #weight {
@@ -112,14 +112,23 @@ code {
   border: 1px solid #fff;
   border-bottom: 6px solid #fff;
 }
+.chart-container {
+  position: relative;
+  width: 99%;
+}
+
 
 @media (max-width: 600px) {
-  .chart-container {
-    position: relative;
-    width: 75vw;
-  }
 
   .graph-card .card-content {
     padding: 0
+  }
+
+  .card .weight {
+    font-size: 30vw;
+  }
+
+  .prevJir .weight {
+    font-size: 20vw;
   }
 }

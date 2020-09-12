@@ -21,7 +21,7 @@ export const AuthPage = () => {
             console.log(data)
             auth.login(data.data.token, data.data.userId)
         } catch (e) {
-            console.log(e.message)
+            window.M.toast({html: e.error.response.data.error, classes: 'rounded red lighten-3 z-depth-0'});
         }
     }
 

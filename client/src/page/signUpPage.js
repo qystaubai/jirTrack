@@ -16,14 +16,15 @@ export const SignUpPage = () => {
         }
     }
 
-    const register = () => {
-        api.callApi('/api/auth/register', userInfo, 'POST')
-            .then((r) => {
-                if (r.status === 201) {
-                    window.location.href = '/auth'
-                }
-            })
-        console.log(userInfo);
+    const register = async () => {
+        try {
+        const answer = await api.callApi('/api/auth/register', userInfo, 'POST')
+        if (answer.status === 201) {
+            window.location.href = '/auth'
+        }
+        } catch (e) {
+            window.M.toast({html: e.error.response.data.error, classes: 'rounded red lighten-3 z-depth-0'});
+        }
     }
 
     const passCheck = () => {
@@ -51,10 +52,12 @@ export const SignUpPage = () => {
                             <div className="input-field" >
                                 <input id="username" onChange={handleChange}/>
                                 <label className="active" htmlFor="username">Никнейм</label>
+                                <span className={`helper-text red-text ${!!userInfo.username && userInfo.username.length<6?'': 'hide'}`}>Никнем должен содержать от 6 символов</span>
                             </div>
                             <div className="input-field" >
                                 <input id="password" type="password" onChange={handleChange}/>
                                 <label className="active" htmlFor="password">Пароль</label>
+                                <span className={`helper-text red-text ${!!userInfo.password && userInfo.password.length<6?'': 'hide'}`}>Пароль должен содержать от 6 символов</span>
                             </div>
                             <div className="input-field">
                                 <input id="passCheck" type="password" onChange={handleChange}/>

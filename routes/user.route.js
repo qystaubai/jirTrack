@@ -1,9 +1,6 @@
 const {Router} = require('express');
 const {check, validationResult} = require('express-validator');
-const bodyParser = require('body-parser');
-
 const router = Router();
-
 const User = require('../models/User');
 
 router.get('/test', (req, res) => {
@@ -27,7 +24,7 @@ router.post('/track', [
     const {id, date, weight} = req.body;
     try {
         const user = await User.findById(id, 'weight',{useFindAndModify: false});
-        const update = await User.findByIdAndUpdate(id, {['weight.' + [Object.keys({...user.weight}).length]]: {date: date, weight: weight}}, {useFindAndModify: false});
+        await User.findByIdAndUpdate(id, {['weight.' + [Object.keys({...user.weight}).length]]: {date: date, weight: weight}}, {useFindAndModify: false});
     } catch (e) {
         return res.json(e.message)
     }

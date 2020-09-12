@@ -1,7 +1,6 @@
 const {check, validationResult} = require('express-validator');
 const {Router} = require('express');
 const jwt = require('jsonwebtoken');
-const bodyParser = require('body-parser');
 
 const router = Router();
 
@@ -11,13 +10,13 @@ const User = require('../models/User');
 router.post(
     '/register',
     [
-        check("username", "Username length must be greater than 6 symbols").isLength({min: 6}),
-        check("password", "Password length must be greater than 6 symbols").isLength({min: 6})
+        check("username", "Никнейм должен состоять из 6 символов и больше").isLength({min: 6}),
+        check("password", "Пароль должен состоять из 6 символов и больше").isLength({min: 6})
     ],
     async (req, res)=>{
         const err = validationResult(req);
         if(!err.isEmpty()){
-            return res.status(400).json({error: "Некорректные авторизационные данные"});
+            return res.status(400).json({error: err.errors[0].msg});
         }
         const {username, password} = req.body;
         const weight = {};
@@ -39,15 +38,13 @@ router.post(
 router.post(
     '/login',
     [
-        bodyParser.json(),
-        check('username', 'Слишком короткий юзернейм').isLength({min: 6}),
-        check('password', 'Введите пароль').exists()
+        check('username').exists(),
+        check('password').exists()
     ],
     async (req, res)=>{
         const err = validationResult(req);
-        console.log(err)
         if(!err.isEmpty()){
-            return res.status(400).json({error: "Некорректные авторизационные данные"});
+            return res.status(400).json({error: err.errors[0].msg});
         }
         const {username, password} = req.body;
 
@@ -69,11 +66,5 @@ router.post(
 
     }
 );
-
-router.get('/ping', (req, res) => {
-    console.log('something in here')
-    res.json({answer: 'pong'});
-})
-
 module.exports = router;
 
