@@ -58,7 +58,7 @@ export const PersonCard = (props) => {
                     <div className='prevJir col s5'>
                         {prevJir? <>
                             <div className="weight">{prevJir?prevJir.weight: '-'}</div>
-                            <div className="date">{prevJir?jirNow.date: '-'}</div>
+                            <div className="date">{prevJir?prevJir.date: '-'}</div>
                         </>:<div>-</div>
                         }
                         <div className="input-field" >
